@@ -38,7 +38,7 @@ class Iso3166Country
 	/**
 	 * @var string
 	 */
-	private $unitedNationsCountryCode;
+	private $unitedNationsIdentifier;
 
 	/**
 	 * @var string
@@ -60,7 +60,7 @@ class Iso3166Country
 		$this->iso3166Alpha3CountryCode = $countryInformation['iso3166_alpha3'];
 		$this->iso3166NumericCountryCode = $countryInformation['iso3166_numeric'];
 		$this->iso3166_2CountryCode = $countryInformation['iso3166_2'];
-		$this->unitedNationsCountryCode = $countryInformation['un'];
+		$this->unitedNationsIdentifier = $countryInformation['un'];
 		$this->toplevelDomain = $countryInformation['tld'];
 		$this->name = $countryInformation['name'];
 		return $this;
@@ -76,7 +76,7 @@ class Iso3166Country
 		$this->iso3166Alpha3CountryCode = $iso3166CountryInformation['iso3166_alpha3'];
 		$this->iso3166NumericCountryCode = $iso3166CountryInformation['iso3166_numeric'];
 		$this->iso3166_2CountryCode = $iso3166CountryInformation['iso3166_2'];
-		$this->unitedNationsCountryCode = $iso3166CountryInformation['un'];
+		$this->unitedNationsIdentifier = $iso3166CountryInformation['un'];
 		$this->toplevelDomain = $iso3166CountryInformation['tld'];
 		$this->name = $iso3166CountryInformation['name'];
 		return $this;
@@ -125,9 +125,9 @@ class Iso3166Country
 	/**
 	 * @return string
 	 */
-	public function getUnitedNationsCountryCode()
+	public function getUnitedNationsIdentifier()
 	{
-		return $this->unitedNationsCountryCode;
+		return $this->unitedNationsIdentifier;
 	}
 
 	/**

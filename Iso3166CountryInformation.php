@@ -254,7 +254,7 @@ class Iso3166CountryInformation
 		$countryDataList = self::getCountryData();
 		$options = array();
 		foreach ($countryDataList as $countryData) {
-			$selected = ($countryData[$valueKey] == $selectedValue) ? ' selected="selected"  ui-active="1"' : ' ui-active="0"';
+			$selected = ($countryData[$valueKey] == $selectedValue) ? ' selected="selected"' : '';
 			$options[] = '<option value="' . $countryData[$valueKey] . '"' . $selected . '>' . $countryData[$nameKey] . '</option>';
 		}
 		return implode(PHP_EOL, $options);
