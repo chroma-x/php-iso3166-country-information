@@ -1,0 +1,26 @@
+{
+  "name": "markenwerk/iso3166-country-information",
+  "type": "library",
+  "description": "ISO3166 util class for validating and listing country codes and getting detailed information for identified countries.",
+  "keywords": [
+    "ISO3166",
+    "Country code"
+  ],
+  "homepage": "http://markenwerk.net/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Martin Brecht-Precht",
+      "email": "mb@markenwerk.net",
+      "homepage": "http://markenwerk.net"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Iso3166Country\\": ""
+    }
+  },
+  "require": {
+    "php": ">=5.3"
+  }
+}
