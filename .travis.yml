@@ -5,20 +5,14 @@ branches:
     - master
 
 php:
-  - 5.3
-  - 5.4
-  - 5.5
-  - 7.0
+  - '5.3'
+  - '5.4'
+  - '5.5'
+  - '7.0'
   - hhvm
 
-before_script:
-  # Composer
-  - wget http://getcomposer.org/composer.phar
-  - php composer.phar install
-
-#  - ./test/reset_tests.sh
-
-script: phpunit
+install:
+  - composer install
 
 matrix:
   allow_failures:
