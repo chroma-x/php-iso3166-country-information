@@ -14,7 +14,7 @@ class Iso3166CountryInformation
 	const ISO3166_ALPHA3 = 'iso3166_alpha3';
 	const ISO3166_NUMERIC = 'iso3166_numeric';
 	const ISO3166_2 = 'iso3166_2';
-	const UNITED_NATIONS_NAME = 'un';
+	const UNITED_NATIONS_IDENTIFIER = 'un';
 	const TOP_LEVEL_DOMAIN = 'tld';
 	const NAME = 'name';
 
@@ -126,7 +126,7 @@ class Iso3166CountryInformation
 		$unitedNationsIdentifier = strtoupper($unitedNationsIdentifier);
 		$countryDataList = self::getCountryData();
 		foreach ($countryDataList as $countryData) {
-			if ($countryData[self::UNITED_NATIONS_NAME] == $unitedNationsIdentifier) {
+			if ($countryData[self::UNITED_NATIONS_IDENTIFIER] == $unitedNationsIdentifier) {
 				$iso3166Country = new Iso3166Country();
 				return $iso3166Country->loadByIso3166CountryInformation($countryData);
 			}
@@ -219,7 +219,7 @@ class Iso3166CountryInformation
 		$unitedNationsIdentifier = strtoupper($unitedNationsIdentifier);
 		$countryDataList = self::getCountryData();
 		foreach ($countryDataList as $countryData) {
-			if ($countryData[self::UNITED_NATIONS_NAME] == $unitedNationsIdentifier) {
+			if ($countryData[self::UNITED_NATIONS_IDENTIFIER] == $unitedNationsIdentifier) {
 				return true;
 			}
 		}
