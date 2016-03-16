@@ -20,7 +20,7 @@ class Iso3166CountryInformationTest extends \PHPUnit_Framework_TestCase
 		$this->assertArrayHasKey(Iso3166CountryInformation::ISO3166_NUMERIC, $country);
 		$this->assertArrayHasKey(Iso3166CountryInformation::ISO3166_2, $country);
 		$this->assertArrayHasKey(Iso3166CountryInformation::TOP_LEVEL_DOMAIN, $country);
-		$this->assertArrayHasKey(Iso3166CountryInformation::UNITED_NATIONS_IDENTIFIER, $country);
+		$this->assertArrayHasKey(Iso3166CountryInformation::UNITED_NATIONS_ID, $country);
 		$this->assertArrayHasKey(Iso3166CountryInformation::NAME, $country);
 	}
 
@@ -60,9 +60,9 @@ class Iso3166CountryInformationTest extends \PHPUnit_Framework_TestCase
 
 	public function testGetByIso3166_2()
 	{
-		$country = Iso3166CountryInformation::getByIso3166_2('de');
+		$country = Iso3166CountryInformation::getByIso3166v2('de');
 		$this->assertInstanceOf('Iso3166Country\\Iso3166Country', $country);
-		$country = Iso3166CountryInformation::getByIso3166_2('xx');
+		$country = Iso3166CountryInformation::getByIso3166v2('xx');
 		$this->assertNull($country);
 	}
 
@@ -76,9 +76,9 @@ class Iso3166CountryInformationTest extends \PHPUnit_Framework_TestCase
 
 	public function testGetByUnitedNationsIdentifier()
 	{
-		$country = Iso3166CountryInformation::getByUnitedNationsIdentifier('de');
+		$country = Iso3166CountryInformation::getByUnitedNationsId('de');
 		$this->assertInstanceOf('Iso3166Country\\Iso3166Country', $country);
-		$country = Iso3166CountryInformation::getByUnitedNationsIdentifier('xx');
+		$country = Iso3166CountryInformation::getByUnitedNationsId('xx');
 		$this->assertNull($country);
 	}
 
@@ -110,9 +110,9 @@ class Iso3166CountryInformationTest extends \PHPUnit_Framework_TestCase
 
 	public function testValidateIso3166_2()
 	{
-		$valid = Iso3166CountryInformation::validateIso3166_2('de');
+		$valid = Iso3166CountryInformation::validateIso3166v2('de');
 		$this->assertTrue($valid);
-		$valid = Iso3166CountryInformation::validateIso3166_2('xx');
+		$valid = Iso3166CountryInformation::validateIso3166v2('xx');
 		$this->assertFalse($valid);
 	}
 
@@ -126,9 +126,9 @@ class Iso3166CountryInformationTest extends \PHPUnit_Framework_TestCase
 
 	public function testValidateUnitedNationsIdentifier()
 	{
-		$valid = Iso3166CountryInformation::validateUnitedNationsIdentifier('de');
+		$valid = Iso3166CountryInformation::validateUnitedNationsId('de');
 		$this->assertTrue($valid);
-		$valid = Iso3166CountryInformation::validateUnitedNationsIdentifier('xx');
+		$valid = Iso3166CountryInformation::validateUnitedNationsId('xx');
 		$this->assertFalse($valid);
 	}
 

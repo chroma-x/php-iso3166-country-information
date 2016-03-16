@@ -40,7 +40,7 @@ class Iso3166Country
 	/**
 	 * @var string
 	 */
-	private $unitedNationsIdentifier;
+	private $unitedNationsId;
 
 	/**
 	 * @var string
@@ -62,7 +62,7 @@ class Iso3166Country
 		$this->iso3166Alpha3CountryCode = $countryInformation[Iso3166CountryInformation::ISO3166_ALPHA3];
 		$this->iso3166NumericCountryCode = $countryInformation[Iso3166CountryInformation::ISO3166_NUMERIC];
 		$this->iso3166_2CountryCode = $countryInformation[Iso3166CountryInformation::ISO3166_2];
-		$this->unitedNationsIdentifier = $countryInformation[Iso3166CountryInformation::UNITED_NATIONS_IDENTIFIER];
+		$this->unitedNationsId = $countryInformation[Iso3166CountryInformation::UNITED_NATIONS_ID];
 		$this->toplevelDomain = $countryInformation[Iso3166CountryInformation::TOP_LEVEL_DOMAIN];
 		$this->name = $countryInformation[Iso3166CountryInformation::NAME];
 		return $this;
@@ -100,8 +100,8 @@ class Iso3166Country
 			throw new Exception\Iso3166CountryException('ISO_3166_COUNTRY_INFORMATION_INVALID');
 		}
 		if (
-			!isset($iso3166CountryInformation[Iso3166CountryInformation::UNITED_NATIONS_IDENTIFIER])
-			|| mb_strlen($iso3166CountryInformation[Iso3166CountryInformation::UNITED_NATIONS_IDENTIFIER]) == 0
+			!isset($iso3166CountryInformation[Iso3166CountryInformation::UNITED_NATIONS_ID])
+			|| mb_strlen($iso3166CountryInformation[Iso3166CountryInformation::UNITED_NATIONS_ID]) == 0
 		) {
 			throw new Exception\Iso3166CountryException('ISO_3166_COUNTRY_INFORMATION_INVALID');
 		}
@@ -122,7 +122,7 @@ class Iso3166Country
 		$this->iso3166Alpha3CountryCode = $iso3166CountryInformation['iso3166_alpha3'];
 		$this->iso3166NumericCountryCode = $iso3166CountryInformation['iso3166_numeric'];
 		$this->iso3166_2CountryCode = $iso3166CountryInformation['iso3166_2'];
-		$this->unitedNationsIdentifier = $iso3166CountryInformation['un'];
+		$this->unitedNationsId = $iso3166CountryInformation['un'];
 		$this->toplevelDomain = $iso3166CountryInformation['tld'];
 		$this->name = $iso3166CountryInformation['name'];
 		return $this;
@@ -171,9 +171,9 @@ class Iso3166Country
 	/**
 	 * @return string
 	 */
-	public function getUnitedNationsIdentifier()
+	public function getUnitedNationsId()
 	{
-		return $this->unitedNationsIdentifier;
+		return $this->unitedNationsId;
 	}
 
 	/**

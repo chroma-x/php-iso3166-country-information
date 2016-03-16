@@ -14,7 +14,7 @@ class Iso3166CountryInformation
 	const ISO3166_ALPHA3 = 'iso3166_alpha3';
 	const ISO3166_NUMERIC = 'iso3166_numeric';
 	const ISO3166_2 = 'iso3166_2';
-	const UNITED_NATIONS_IDENTIFIER = 'un';
+	const UNITED_NATIONS_ID = 'un';
 	const TOP_LEVEL_DOMAIN = 'tld';
 	const NAME = 'name';
 
@@ -58,7 +58,6 @@ class Iso3166CountryInformation
 	public static function getByIso3166Alpha2($countryCode)
 	{
 		$countryCode = strtoupper($countryCode);
-		$countryDataList = self::getCountryData();
 		if (isset($countryDataList[$countryCode])) {
 			$iso3166Country = new Iso3166Country();
 			return $iso3166Country->loadByIso3166CountryInformation($countryDataList[$countryCode]);
@@ -73,14 +72,7 @@ class Iso3166CountryInformation
 	public static function getByIso3166Alpha3($countryCode)
 	{
 		$countryCode = strtoupper($countryCode);
-		$countryDataList = self::getCountryData();
-		foreach ($countryDataList as $countryData) {
-			if ($countryData[self::ISO3166_ALPHA3] == $countryCode) {
-				$iso3166Country = new Iso3166Country();
-				return $iso3166Country->loadByIso3166CountryInformation($countryData);
-			}
-		}
-		return null;
+		return self::getBy(self::ISO3166_ALPHA3, $countryCode);
 	}
 
 	/**
@@ -90,48 +82,27 @@ class Iso3166CountryInformation
 	public static function getByIso3166Numeric($countryCode)
 	{
 		$countryCode = str_pad((string)$countryCode, 3, '0', STR_PAD_LEFT);
-		$countryDataList = self::getCountryData();
-		foreach ($countryDataList as $countryData) {
-			if ($countryData[self::ISO3166_NUMERIC] == $countryCode) {
-				$iso3166Country = new Iso3166Country();
-				return $iso3166Country->loadByIso3166CountryInformation($countryData);
-			}
-		}
-		return null;
+		return self::getBy(self::ISO3166_NUMERIC, $countryCode);
 	}
 
 	/**
 	 * @param string $countryCode
 	 * @return Iso3166Country|null
 	 */
-	public static function getByIso3166_2($countryCode)
+	public static function getByIso3166v2($countryCode)
 	{
 		$countryCode = strtoupper($countryCode);
-		$countryDataList = self::getCountryData();
-		foreach ($countryDataList as $countryData) {
-			if ($countryData[self::ISO3166_2] == $countryCode) {
-				$iso3166Country = new Iso3166Country();
-				return $iso3166Country->loadByIso3166CountryInformation($countryData);
-			}
-		}
-		return null;
+		return self::getBy(self::ISO3166_2, $countryCode);
 	}
 
 	/**
-	 * @param string $unitedNationsIdentifier
+	 * @param string $unitedNationsId
 	 * @return Iso3166Country|null
 	 */
-	public static function getByUnitedNationsIdentifier($unitedNationsIdentifier)
+	public static function getByUnitedNationsId($unitedNationsId)
 	{
-		$unitedNationsIdentifier = strtoupper($unitedNationsIdentifier);
-		$countryDataList = self::getCountryData();
-		foreach ($countryDataList as $countryData) {
-			if ($countryData[self::UNITED_NATIONS_IDENTIFIER] == $unitedNationsIdentifier) {
-				$iso3166Country = new Iso3166Country();
-				return $iso3166Country->loadByIso3166CountryInformation($countryData);
-			}
-		}
-		return null;
+		$unitedNationsId = strtoupper($unitedNationsId);
+		return self::getBy(self::UNITED_NATIONS_ID, $unitedNationsId);
 	}
 
 	/**
@@ -141,9 +112,20 @@ class Iso3166CountryInformation
 	public static function getByToplevelDomain($toplevelDomain)
 	{
 		$toplevelDomain = trim(strtolower($toplevelDomain), '.');
+		return self::getBy(self::TOP_LEVEL_DOMAIN, $toplevelDomain);
+	}
+
+	/**
+	 * @param string $identifier
+	 * @param string $code
+	 * @return Iso3166Country|null
+	 * @throws Exception\Iso3166CountryException
+	 */
+	private static function getBy($identifier, $code)
+	{
 		$countryDataList = self::getCountryData();
 		foreach ($countryDataList as $countryData) {
-			if ($countryData[self::TOP_LEVEL_DOMAIN] == $toplevelDomain) {
+			if ($countryData[$identifier] == $code) {
 				$iso3166Country = new Iso3166Country();
 				return $iso3166Country->loadByIso3166CountryInformation($countryData);
 			}
@@ -169,13 +151,7 @@ class Iso3166CountryInformation
 	public static function validateIso3166Alpha3($countryCode)
 	{
 		$countryCode = strtoupper($countryCode);
-		$countryDataList = self::getCountryData();
-		foreach ($countryDataList as $countryData) {
-			if ($countryData[self::ISO3166_ALPHA3] == $countryCode) {
-				return true;
-			}
-		}
-		return false;
+		return self::validateBy(self::ISO3166_ALPHA3, $countryCode);
 	}
 
 	/**
@@ -185,45 +161,27 @@ class Iso3166CountryInformation
 	public static function validateIso3166Numeric($countryCode)
 	{
 		$countryCode = str_pad((string)$countryCode, 3, '0', STR_PAD_LEFT);
-		$countryDataList = self::getCountryData();
-		foreach ($countryDataList as $countryData) {
-			if ($countryData[self::ISO3166_NUMERIC] == $countryCode) {
-				return true;
-			}
-		}
-		return false;
+		return self::validateBy(self::ISO3166_NUMERIC, $countryCode);
 	}
 
 	/**
 	 * @param string $countryCode
 	 * @return bool
 	 */
-	public static function validateIso3166_2($countryCode)
+	public static function validateIso3166v2($countryCode)
 	{
 		$countryCode = strtoupper($countryCode);
-		$countryDataList = self::getCountryData();
-		foreach ($countryDataList as $countryData) {
-			if ($countryData[self::ISO3166_2] == $countryCode) {
-				return true;
-			}
-		}
-		return false;
+		return self::validateBy(self::ISO3166_2, $countryCode);
 	}
 
 	/**
-	 * @param string $unitedNationsIdentifier
+	 * @param string $unitedNationsId
 	 * @return bool
 	 */
-	public static function validateUnitedNationsIdentifier($unitedNationsIdentifier)
+	public static function validateUnitedNationsId($unitedNationsId)
 	{
-		$unitedNationsIdentifier = strtoupper($unitedNationsIdentifier);
-		$countryDataList = self::getCountryData();
-		foreach ($countryDataList as $countryData) {
-			if ($countryData[self::UNITED_NATIONS_IDENTIFIER] == $unitedNationsIdentifier) {
-				return true;
-			}
-		}
-		return false;
+		$unitedNationsId = strtoupper($unitedNationsId);
+		return self::validateBy(self::UNITED_NATIONS_ID, $unitedNationsId);
 	}
 
 	/**
@@ -233,9 +191,19 @@ class Iso3166CountryInformation
 	public static function validateToplevelDomain($toplevelDomain)
 	{
 		$toplevelDomain = trim(strtolower($toplevelDomain), '.');
+		return self::validateBy(self::TOP_LEVEL_DOMAIN, $toplevelDomain);
+	}
+
+	/**
+	 * @param string $identifier
+	 * @param string $code
+	 * @return bool
+	 */
+	private static function validateBy($identifier, $code)
+	{
 		$countryDataList = self::getCountryData();
 		foreach ($countryDataList as $countryData) {
-			if ($countryData[self::TOP_LEVEL_DOMAIN] == $toplevelDomain) {
+			if ($countryData[$identifier] == $code) {
 				return true;
 			}
 		}
@@ -248,14 +216,19 @@ class Iso3166CountryInformation
 	 * @param string $nameKey
 	 * @return string
 	 */
-	public static function getSelectOptions($selectedValue = null, $valueKey = self::ISO3166_ALPHA2, $nameKey = self::NAME)
-	{
+	public static function getSelectOptions(
+		$selectedValue = null,
+		$valueKey = self::ISO3166_ALPHA2,
+		$nameKey = self::NAME
+	) {
 		$selectedValue = strtoupper($selectedValue);
 		$countryDataList = self::getCountryData();
 		$options = array();
 		foreach ($countryDataList as $countryData) {
 			$selected = ($countryData[$valueKey] == $selectedValue) ? ' selected="selected"' : '';
-			$options[] = '<option value="' . $countryData[$valueKey] . '"' . $selected . '>' . $countryData[$nameKey] . '</option>';
+			$value = $countryData[$valueKey];
+			$name = $countryData[$nameKey];
+			$options[] = '<option value="' . $value . '"' . $selected . '>' . $name . '</option>';
 		}
 		return implode(PHP_EOL, $options);
 	}

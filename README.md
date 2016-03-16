@@ -1,6 +1,7 @@
 # ISO3166 Country Information
 
 [![Build Status](https://travis-ci.org/markenwerk/php-iso3166-country-information.svg?branch=master)](https://travis-ci.org/markenwerk/php-iso3166-country-information)
+[![Code Climate](https://codeclimate.com/github/markenwerk/php-iso3166-country-information/badges/gpa.svg)](https://codeclimate.com/github/markenwerk/php-iso3166-country-information)
 [![Latest Stable Version](https://poser.pugx.org/markenwerk/iso3166-country-information/v/stable)](https://packagist.org/packages/markenwerk/iso3166-country-information)
 [![Total Downloads](https://poser.pugx.org/markenwerk/iso3166-country-information/downloads)](https://packagist.org/packages/markenwerk/iso3166-country-information)
 [![License](https://poser.pugx.org/markenwerk/iso3166-country-information/license)](https://packagist.org/packages/markenwerk/iso3166-country-information)
@@ -168,7 +169,7 @@ $iso3166Country = Iso3166CountryInformation::getByToplevelDomain('de');
 #### Get info for the ISO3166 united nations identifier 'de' (Germany)
 
 ````{php}
-$iso3166Country = Iso3166CountryInformation::getByUnitedNationsIdentifier('de');
+$iso3166Country = Iso3166CountryInformation::getByUnitedNationsId('de');
 ````
 
 ##### Result
@@ -223,7 +224,7 @@ $countryExists = Iso3166CountryInformation::validateToplevelDomain('de');
 #### Whether the ISO3166 united nations identifier 'de' exists
 
 ````{php}
-$countryExists = Iso3166CountryInformation::validateUnitedNationsIdentifier('de');
+$countryExists = Iso3166CountryInformation::validateUnitedNationsId('de');
 ````
 
 ##### All validation methods return a boolean value.
@@ -253,7 +254,7 @@ $utopia = array(
 	Iso3166CountryInformation::ISO3166_ALPHA3 => 'UTO',
 	Iso3166CountryInformation::ISO3166_NUMERIC => 42,
 	Iso3166CountryInformation::ISO3166_2 => 'UO',
-	Iso3166CountryInformation::UNITED_NATIONS_IDENTIFIER => 'uo',
+	Iso3166CountryInformation::UNITED_NATIONS_ID => 'uo',
 	Iso3166CountryInformation::TOP_LEVEL_DOMAIN => 'uo',
 	Iso3166CountryInformation::NAME => 'Utopia'
 );
@@ -269,7 +270,7 @@ $iso3166Alpha3 = $country->getIso3166Alpha3CountryCode();
 $iso3166Numeric = $country->getIso3166NumericCountryCode();
 $iso3166_2 = $country->getIso31662CountryCode();
 $toplevelDomain = $country->getToplevelDomain();
-$unitedNationsIdentifier = $country->getUnitedNationsIdentifier();
+$unitedNationsIdentifier = $country->getUnitedNationsId();
 $name = $country->getName();
 ````
 
