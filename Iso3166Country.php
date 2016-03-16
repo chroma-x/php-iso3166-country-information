@@ -69,40 +69,40 @@ class Iso3166Country
 	}
 
 	/**
-	 * @param array $iso3166CountryInformation
+	 * @param array $iso3166CountryInfo
 	 * @return $this
 	 * @throws Iso3166CountryException
 	 */
-	public function loadByIso3166CountryInformation(array $iso3166CountryInformation)
+	public function loadByIso3166CountryInformation(array $iso3166CountryInfo)
 	{
-		if (!$this->validateInfoByIso3166Alpha2CountryCode($iso3166CountryInformation)) {
+		if (!$this->validateInfoByIso3166Alpha2CountryCode($iso3166CountryInfo)) {
 			throw new Exception\Iso3166CountryException('ISO_3166_COUNTRY_INFORMATION_INVALID');
 		}
-		if ($this->validateInfoByIso3166Alpha3CountryCode($iso3166CountryInformation)) {
+		if (!$this->validateInfoByIso3166Alpha3CountryCode($iso3166CountryInfo)) {
 			throw new Exception\Iso3166CountryException('ISO_3166_COUNTRY_INFORMATION_INVALID');
 		}
-		if (!$this->validateInfoByIso3166NumericCountryCode($iso3166CountryInformation)) {
+		if (!$this->validateInfoByIso3166NumericCountryCode($iso3166CountryInfo)) {
 			throw new Exception\Iso3166CountryException('ISO_3166_COUNTRY_INFORMATION_INVALID');
 		}
-		if (!$this->validateInfoByIso3166v2CountryCode($iso3166CountryInformation)) {
+		if (!$this->validateInfoByIso3166v2CountryCode($iso3166CountryInfo)) {
 			throw new Exception\Iso3166CountryException('ISO_3166_COUNTRY_INFORMATION_INVALID');
 		}
-		if (!$this->validateInfoByUnitedNationsId($iso3166CountryInformation)) {
+		if (!$this->validateInfoByUnitedNationsId($iso3166CountryInfo)) {
 			throw new Exception\Iso3166CountryException('ISO_3166_COUNTRY_INFORMATION_INVALID');
 		}
-		if (!$this->validateInfoByToplevelDomain($iso3166CountryInformation)) {
+		if (!$this->validateInfoByToplevelDomain($iso3166CountryInfo)) {
 			throw new Exception\Iso3166CountryException('ISO_3166_COUNTRY_INFORMATION_INVALID');
 		}
-		if (!$this->validateInfoByName($iso3166CountryInformation)) {
+		if (!$this->validateInfoByName($iso3166CountryInfo)) {
 			throw new Exception\Iso3166CountryException('ISO_3166_COUNTRY_INFORMATION_INVALID');
 		}
-		$this->iso3166Alpha2CountryCode = $iso3166CountryInformation['iso3166_alpha2'];
-		$this->iso3166Alpha3CountryCode = $iso3166CountryInformation['iso3166_alpha3'];
-		$this->iso3166NumericCountryCode = $iso3166CountryInformation['iso3166_numeric'];
-		$this->iso3166v2CountryCode = $iso3166CountryInformation['iso3166_2'];
-		$this->unitedNationsId = $iso3166CountryInformation['un'];
-		$this->toplevelDomain = $iso3166CountryInformation['tld'];
-		$this->name = $iso3166CountryInformation['name'];
+		$this->iso3166Alpha2CountryCode = $iso3166CountryInfo['iso3166_alpha2'];
+		$this->iso3166Alpha3CountryCode = $iso3166CountryInfo['iso3166_alpha3'];
+		$this->iso3166NumericCountryCode = $iso3166CountryInfo['iso3166_numeric'];
+		$this->iso3166v2CountryCode = $iso3166CountryInfo['iso3166_2'];
+		$this->unitedNationsId = $iso3166CountryInfo['un'];
+		$this->toplevelDomain = $iso3166CountryInfo['tld'];
+		$this->name = $iso3166CountryInfo['name'];
 		return $this;
 	}
 
@@ -163,14 +163,14 @@ class Iso3166Country
 	}
 
 	/**
-	 * @param array $iso3166CountryInformation
+	 * @param array $iso3166CountryInfo
 	 * @return bool
 	 */
-	private function validateInfoByIso3166Alpha2CountryCode(array $iso3166CountryInformation)
+	private function validateInfoByIso3166Alpha2CountryCode(array $iso3166CountryInfo)
 	{
 		if (
-			!isset($iso3166CountryInformation[Iso3166CountryInformation::ISO3166_ALPHA2])
-			|| mb_strlen($iso3166CountryInformation[Iso3166CountryInformation::ISO3166_ALPHA2]) != 2
+			!isset($iso3166CountryInfo[Iso3166CountryInformation::ISO3166_ALPHA2])
+			|| mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::ISO3166_ALPHA2]) != 2
 		) {
 			return false;
 		}
@@ -178,14 +178,14 @@ class Iso3166Country
 	}
 
 	/**
-	 * @param array $iso3166CountryInformation
+	 * @param array $iso3166CountryInfo
 	 * @return bool
 	 */
-	private function validateInfoByIso3166Alpha3CountryCode(array $iso3166CountryInformation)
+	private function validateInfoByIso3166Alpha3CountryCode(array $iso3166CountryInfo)
 	{
 		if (
-			!isset($iso3166CountryInformation[Iso3166CountryInformation::ISO3166_ALPHA3])
-			|| mb_strlen($iso3166CountryInformation[Iso3166CountryInformation::ISO3166_ALPHA3]) != 3
+			!isset($iso3166CountryInfo[Iso3166CountryInformation::ISO3166_ALPHA3])
+			|| mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::ISO3166_ALPHA3]) != 3
 		) {
 			return false;
 		}
@@ -193,14 +193,14 @@ class Iso3166Country
 	}
 
 	/**
-	 * @param array $iso3166CountryInformation
+	 * @param array $iso3166CountryInfo
 	 * @return bool
 	 */
-	private function validateInfoByIso3166NumericCountryCode(array $iso3166CountryInformation)
+	private function validateInfoByIso3166NumericCountryCode(array $iso3166CountryInfo)
 	{
 		if (
-			!isset($iso3166CountryInformation[Iso3166CountryInformation::ISO3166_NUMERIC])
-			|| !is_numeric($iso3166CountryInformation[Iso3166CountryInformation::ISO3166_NUMERIC])
+			!isset($iso3166CountryInfo[Iso3166CountryInformation::ISO3166_NUMERIC])
+			|| !is_numeric($iso3166CountryInfo[Iso3166CountryInformation::ISO3166_NUMERIC])
 		) {
 			return false;
 		}
@@ -208,14 +208,14 @@ class Iso3166Country
 	}
 
 	/**
-	 * @param array $iso3166CountryInformation
+	 * @param array $iso3166CountryInfo
 	 * @return bool
 	 */
-	private function validateInfoByIso3166v2CountryCode(array $iso3166CountryInformation)
+	private function validateInfoByIso3166v2CountryCode(array $iso3166CountryInfo)
 	{
 		if (
-			!isset($iso3166CountryInformation[Iso3166CountryInformation::ISO3166_2])
-			|| mb_strlen($iso3166CountryInformation[Iso3166CountryInformation::ISO3166_2]) != 2
+			!isset($iso3166CountryInfo[Iso3166CountryInformation::ISO3166_2])
+			|| mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::ISO3166_2]) != 2
 		) {
 			return false;
 		}
@@ -223,14 +223,14 @@ class Iso3166Country
 	}
 
 	/**
-	 * @param array $iso3166CountryInformation
+	 * @param array $iso3166CountryInfo
 	 * @return bool
 	 */
-	private function validateInfoByUnitedNationsId(array $iso3166CountryInformation)
+	private function validateInfoByUnitedNationsId(array $iso3166CountryInfo)
 	{
 		if (
-			!isset($iso3166CountryInformation[Iso3166CountryInformation::UNITED_NATIONS_ID])
-			|| mb_strlen($iso3166CountryInformation[Iso3166CountryInformation::UNITED_NATIONS_ID]) == 0
+			!isset($iso3166CountryInfo[Iso3166CountryInformation::UNITED_NATIONS_ID])
+			|| mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::UNITED_NATIONS_ID]) == 0
 		) {
 			return false;
 		}
@@ -238,15 +238,15 @@ class Iso3166Country
 	}
 
 	/**
-	 * @param array $iso3166CountryInformation
+	 * @param array $iso3166CountryInfo
 	 * @return bool
 	 */
-	private function validateInfoByToplevelDomain(array $iso3166CountryInformation)
+	private function validateInfoByToplevelDomain(array $iso3166CountryInfo)
 	{
 		if (
-			!isset($iso3166CountryInformation[Iso3166CountryInformation::TOP_LEVEL_DOMAIN])
-			|| mb_strlen($iso3166CountryInformation[Iso3166CountryInformation::TOP_LEVEL_DOMAIN]) < 2
-			|| mb_strlen($iso3166CountryInformation[Iso3166CountryInformation::TOP_LEVEL_DOMAIN]) > 4
+			!isset($iso3166CountryInfo[Iso3166CountryInformation::TOP_LEVEL_DOMAIN])
+			|| mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::TOP_LEVEL_DOMAIN]) < 2
+			|| mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::TOP_LEVEL_DOMAIN]) > 4
 		) {
 			return false;
 		}
@@ -254,14 +254,14 @@ class Iso3166Country
 	}
 
 	/**
-	 * @param array $iso3166CountryInformation
+	 * @param array $iso3166CountryInfo
 	 * @return bool
 	 */
-	private function validateInfoByName(array $iso3166CountryInformation)
+	private function validateInfoByName(array $iso3166CountryInfo)
 	{
 		if (
-			!isset($iso3166CountryInformation[Iso3166CountryInformation::NAME])
-			|| mb_strlen($iso3166CountryInformation[Iso3166CountryInformation::NAME]) == 0
+			!isset($iso3166CountryInfo[Iso3166CountryInformation::NAME])
+			|| mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::NAME]) == 0
 		) {
 			return false;
 		}

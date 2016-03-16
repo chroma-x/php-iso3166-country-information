@@ -58,6 +58,7 @@ class Iso3166CountryInformation
 	public static function getByIso3166Alpha2($countryCode)
 	{
 		$countryCode = strtoupper($countryCode);
+		$countryDataList = self::getCountryData();
 		if (isset($countryDataList[$countryCode])) {
 			$iso3166Country = new Iso3166Country();
 			return $iso3166Country->loadByIso3166CountryInformation($countryDataList[$countryCode]);
