@@ -157,7 +157,7 @@ $iso3166Country = Iso3166CountryInformation::getByIso3166Numeric(276);
 #### Get info for the ISO3166-2 country code 'de' (Germany)
 
 ````{php}
-$iso3166Country = Iso3166CountryInformation::getByIso3166_2('de');
+$iso3166Country = Iso3166CountryInformation::getByIso3166v2('de');
 ````
 
 #### Get info for the ISO3166 top level domain 'de' (Germany)
@@ -212,7 +212,7 @@ $countryExists = Iso3166CountryInformation::validateIso3166Numeric(276);
 #### Whether the ISO3166-2 country code 'de' exists
 
 ````{php}
-$countryExists = Iso3166CountryInformation::validateIso3166_2('de');
+$countryExists = Iso3166CountryInformation::validateIso3166v2('de');
 ````
 
 #### Whether the ISO3166 top level domain 'de' exists
@@ -268,7 +268,7 @@ $country->loadByIso3166CountryInformation($utopia);
 $iso3166Alpha2 = $country->getIso3166Alpha2CountryCode();
 $iso3166Alpha3 = $country->getIso3166Alpha3CountryCode();
 $iso3166Numeric = $country->getIso3166NumericCountryCode();
-$iso3166_2 = $country->getIso31662CountryCode();
+$iso3166_2 = $country->getIso3166v2CountryCode();
 $toplevelDomain = $country->getToplevelDomain();
 $unitedNationsIdentifier = $country->getUnitedNationsId();
 $name = $country->getName();
