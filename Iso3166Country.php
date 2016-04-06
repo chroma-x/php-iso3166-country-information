@@ -48,13 +48,13 @@ class Iso3166Country
 	private $name;
 
 	/**
-	 * @param string $iso3166Alpha2CountryCode
+	 * @param string $iso3166Alpha2Code
 	 * @return $this
 	 * @throws Exception\Iso3166CountryException
 	 */
-	public function loadByIso3166Alpha2CountryCode($iso3166Alpha2CountryCode)
+	public function loadByIso3166Alpha2Code($iso3166Alpha2Code)
 	{
-		$countryInformation = Iso3166CountryInformation::getByIso3166Alpha2($iso3166Alpha2CountryCode);
+		$countryInformation = Iso3166CountryInformation::getByIso3166Alpha2($iso3166Alpha2Code);
 		if (is_null($countryInformation)) {
 			throw new Exception\Iso3166CountryException('ISO_3166_COUNTRY_NOT_FOUND');
 		}

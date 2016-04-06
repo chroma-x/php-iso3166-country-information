@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/markenwerk/php-iso3166-country-information.svg?branch=master)](https://travis-ci.org/markenwerk/php-iso3166-country-information)
 [![Code Climate](https://codeclimate.com/github/markenwerk/php-iso3166-country-information/badges/gpa.svg)](https://codeclimate.com/github/markenwerk/php-iso3166-country-information)
+[![Issue Count](https://codeclimate.com/github/markenwerk/php-iso3166-country-information/badges/issue_count.svg)](https://codeclimate.com/github/markenwerk/php-iso3166-country-information)
 [![Latest Stable Version](https://poser.pugx.org/markenwerk/iso3166-country-information/v/stable)](https://packagist.org/packages/markenwerk/iso3166-country-information)
 [![Total Downloads](https://poser.pugx.org/markenwerk/iso3166-country-information/downloads)](https://packagist.org/packages/markenwerk/iso3166-country-information)
 [![License](https://poser.pugx.org/markenwerk/iso3166-country-information/license)](https://packagist.org/packages/markenwerk/iso3166-country-information)
