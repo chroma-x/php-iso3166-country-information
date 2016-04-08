@@ -4,6 +4,10 @@
 
 This document provides a set of best practices for contributions - bug reports, code submissions / pull requests, etc.
 
+## Sources
+
+This document is based on the open source document [Contributing to Open Source Projects](http://contribution-guide-org.readthedocs.org/) by  [Jeff Forcier](https://github.com/bitprophet).
+
 ## Submitting bugs
 
 ### Due diligence
@@ -70,14 +74,14 @@ Here’s an example workflow for `php-iso3166-country-information` hosted on Git
 
 ### Preparing your Fork
 
-1. Hit ‘fork’ on Github, creating e.g. `yourname/php-iso3166-country-information`
-2. Clone your project  
+- Hit ‘fork’ on Github, creating e.g. `yourname/php-iso3166-country-information`
+- Clone your project  
 
 ```
 git clone git@github.com:yourname/php-iso3166-country-information
 ```
 
-3. Create a branch
+- Create a branch
 
 ```
 cd php-iso3166-country-information
@@ -86,10 +90,10 @@ git checkout -b foo-the-bars 2.0
 
 ### Making your Changes
 
-1. Write tests expecting the correct / fixed functionality; make sure they fail.
-2. Hack, hack, hack.
-3. Run tests again, making sure they pass.
-4. Commit your changes
+- Write tests expecting the correct / fixed functionality; make sure they fail.
+- Hack, hack, hack.
+- Run tests again, making sure they pass.
+- Commit your changes
 
 ```
 git commit -m "Changelog styled commit message crediting yourself"
@@ -97,13 +101,13 @@ git commit -m "Changelog styled commit message crediting yourself"
 
 ### Creating Pull Requests
 
-1. Push your commit to get it back up to your fork
+- Push your commit to get it back up to your fork
 
 ```
 git push origin HEAD
 ```
 
-2. Visit Github, click handy “Pull request” button that it will make upon noticing your new branch.
-3. In the description field, write down issue number (if submitting code fixing an existing issue) or describe the issue + your fix (if submitting a wholly new bugfix).
-4. Hit ‘submit’! And please be patient - the maintainers will get to you when they can.
+- Visit Github, click handy “Pull request” button that it will make upon noticing your new branch.
+- In the description field, write down issue number (if submitting code fixing an existing issue) or describe the issue + your fix (if submitting a wholly new bugfix).
+- Hit ‘submit’! And please be patient - the maintainers will get to you when they can.
 
