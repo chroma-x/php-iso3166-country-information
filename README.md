@@ -274,6 +274,11 @@ $unitedNationsIdentifier = $country->getUnitedNationsId();
 $name = $country->getName();
 ````
 
+## Contribution
+
+Contributing to our projects is always very appreciated.  
+**But: please follow the contribution guidelines written down in the `CONTRIBUTING.md` document.**
+
 ## License
 
 ISO3166 Country Information is under the MIT license.
