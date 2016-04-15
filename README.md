@@ -1,4 +1,4 @@
-# ISO3166 Country Information
+# PHP ISO3166 Country Information
 
 [![Build Status](https://travis-ci.org/markenwerk/php-iso3166-country-information.svg?branch=master)](https://travis-ci.org/markenwerk/php-iso3166-country-information)
 [![Code Climate](https://codeclimate.com/github/markenwerk/php-iso3166-country-information/badges/gpa.svg)](https://codeclimate.com/github/markenwerk/php-iso3166-country-information)
