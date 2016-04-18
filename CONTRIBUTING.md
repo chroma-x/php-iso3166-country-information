@@ -85,7 +85,7 @@ git clone git@github.com:yourname/php-iso3166-country-information
 
 ```
 cd php-iso3166-country-information
-git checkout -b foo-the-bars 2.0
+git checkout -b feature-awesome-feature 2.0.7
 ```
 
 ### Making your Changes
