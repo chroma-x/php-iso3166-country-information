@@ -278,8 +278,8 @@ $name = $country->getName();
 ## Contribution
 
 Contributing to our projects is always very appreciated.  
-**But: please follow the contribution guidelines written down in the `CONTRIBUTING.md` document.**
+**But: please follow the contribution guidelines written down in the [CONTRIBUTING.md](https://github.com/markenwerk/php-iso3166-country-information/blob/master/CONTRIBUTING.md) document.**
 
 ## License
 
-ISO3166 Country Information is under the MIT license.
+PHP ISO3166 Country Information is under the MIT license.
