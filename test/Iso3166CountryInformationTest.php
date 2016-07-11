@@ -1,11 +1,11 @@
 <?php
 
-namespace Iso3166Country;
+namespace Markenwerk\Iso3166Country;
 
 /**
  * Class Iso3166CountryInformationTest
  *
- * @package Iso3166Country
+ * @package Markenwerk\Iso3166Country
  */
 class Iso3166CountryInformationTest extends \PHPUnit_Framework_TestCase
 {
@@ -29,13 +29,13 @@ class Iso3166CountryInformationTest extends \PHPUnit_Framework_TestCase
 		$countries = Iso3166CountryInformation::getCountries();
 		$this->assertArrayHasKey('DE', $countries);
 		$country = $countries['DE'];
-		$this->assertInstanceOf('Iso3166Country\\Iso3166Country', $country);
+		$this->assertInstanceOf('Markenwerk\\Iso3166Country\\Iso3166Country', $country);
 	}
 
 	public function testGetByIso3166Alpha2()
 	{
 		$country = Iso3166CountryInformation::getByIso3166Alpha2('de');
-		$this->assertInstanceOf('Iso3166Country\\Iso3166Country', $country);
+		$this->assertInstanceOf('Markenwerk\\Iso3166Country\\Iso3166Country', $country);
 		$country = Iso3166CountryInformation::getByIso3166Alpha2('xx');
 		$this->assertNull($country);
 	}
@@ -43,7 +43,7 @@ class Iso3166CountryInformationTest extends \PHPUnit_Framework_TestCase
 	public function testGetByIso3166Alpha3()
 	{
 		$country = Iso3166CountryInformation::getByIso3166Alpha3('deu');
-		$this->assertInstanceOf('Iso3166Country\\Iso3166Country', $country);
+		$this->assertInstanceOf('Markenwerk\\Iso3166Country\\Iso3166Country', $country);
 		$country = Iso3166CountryInformation::getByIso3166Alpha3('xxx');
 		$this->assertNull($country);
 	}
@@ -51,9 +51,9 @@ class Iso3166CountryInformationTest extends \PHPUnit_Framework_TestCase
 	public function testGetByIso3166Numeric()
 	{
 		$country = Iso3166CountryInformation::getByIso3166Numeric(276);
-		$this->assertInstanceOf('Iso3166Country\\Iso3166Country', $country);
+		$this->assertInstanceOf('Markenwerk\\Iso3166Country\\Iso3166Country', $country);
 		$country = Iso3166CountryInformation::getByIso3166Numeric('276');
-		$this->assertInstanceOf('Iso3166Country\\Iso3166Country', $country);
+		$this->assertInstanceOf('Markenwerk\\Iso3166Country\\Iso3166Country', $country);
 		$country = Iso3166CountryInformation::getByIso3166Numeric(20000);
 		$this->assertNull($country);
 	}
@@ -61,7 +61,7 @@ class Iso3166CountryInformationTest extends \PHPUnit_Framework_TestCase
 	public function testGetByIso3166_2()
 	{
 		$country = Iso3166CountryInformation::getByIso3166v2('de');
-		$this->assertInstanceOf('Iso3166Country\\Iso3166Country', $country);
+		$this->assertInstanceOf('Markenwerk\\Iso3166Country\\Iso3166Country', $country);
 		$country = Iso3166CountryInformation::getByIso3166v2('xx');
 		$this->assertNull($country);
 	}
@@ -69,7 +69,7 @@ class Iso3166CountryInformationTest extends \PHPUnit_Framework_TestCase
 	public function testGetByToplevelDomain()
 	{
 		$country = Iso3166CountryInformation::getByToplevelDomain('de');
-		$this->assertInstanceOf('Iso3166Country\\Iso3166Country', $country);
+		$this->assertInstanceOf('Markenwerk\\Iso3166Country\\Iso3166Country', $country);
 		$country = Iso3166CountryInformation::getByToplevelDomain('xx');
 		$this->assertNull($country);
 	}
@@ -77,7 +77,7 @@ class Iso3166CountryInformationTest extends \PHPUnit_Framework_TestCase
 	public function testGetByUnitedNationsIdentifier()
 	{
 		$country = Iso3166CountryInformation::getByUnitedNationsId('de');
-		$this->assertInstanceOf('Iso3166Country\\Iso3166Country', $country);
+		$this->assertInstanceOf('Markenwerk\\Iso3166Country\\Iso3166Country', $country);
 		$country = Iso3166CountryInformation::getByUnitedNationsId('xx');
 		$this->assertNull($country);
 	}

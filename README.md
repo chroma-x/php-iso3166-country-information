@@ -14,7 +14,7 @@ ISO3166 util class for validating and listing country codes and getting detailed
 ````{json}
 {
    	"require": {
-        "markenwerk/iso3166-country-information": "~2.0"
+        "markenwerk/iso3166-country-information": "~3.0"
     }
 }
 ````
@@ -26,8 +26,8 @@ ISO3166 util class for validating and listing country codes and getting detailed
 ````{php}  
 require_once('path/to/vendor/autoload.php');
 
-use Iso3166Country\Iso3166CountryInformation;
-use Iso3166Country\Iso3166Country;
+use Markenwerk\Iso3166Country\Iso3166CountryInformation;
+use Markenwerk\Iso3166Country\Iso3166Country;
 ````
 
 ---
@@ -237,8 +237,8 @@ $countryExists = Iso3166CountryInformation::validateUnitedNationsId('de');
 #### Creation of an object by country code
 
 ````{php}
-use Iso3166Country\Iso3166CountryInformation;
-use Iso3166Country\Iso3166Country;
+use Markenwerk\Iso3166Country\Iso3166CountryInformation;
+use Markenwerk\Iso3166Country\Iso3166Country;
 
 $country = new Iso3166Country();
 $country->loadByIso3166Alpha2CountryCode('DE');

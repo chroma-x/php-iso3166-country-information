@@ -17,7 +17,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Iso3166Country\\": "src/"
+      "Markenwerk\\Iso3166Country\\": "src/"
     }
   },
   "require": {
