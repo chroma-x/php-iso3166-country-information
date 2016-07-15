@@ -1,11 +1,11 @@
 <?php
 
-namespace Iso3166Country;
+namespace Markenwerk\Iso3166Country;
 
 /**
  * Class Iso3166CountryInformation
  *
- * @package Iso3166Country
+ * @package Markenwerk\Iso3166Country
  */
 class Iso3166CountryInformation
 {

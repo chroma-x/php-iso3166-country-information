@@ -1,13 +1,13 @@
 <?php
 
-namespace Iso3166Country;
+namespace Markenwerk\Iso3166Country;
 
-use Iso3166Country\Exception\Iso3166CountryException;
+use Markenwerk\Iso3166Country\Exception\Iso3166CountryException;
 
 /**
  * Class Iso3166Country
  *
- * @package Iso3166Country
+ * @package Markenwerk\Iso3166Country
  */
 class Iso3166Country
 {
