@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/markenwerk/php-iso3166-country-information.svg?branch=master)](https://travis-ci.org/markenwerk/php-iso3166-country-information)
 [![Test Coverage](https://codeclimate.com/github/markenwerk/php-iso3166-country-information/badges/coverage.svg)](https://codeclimate.com/github/markenwerk/php-iso3166-country-information/coverage)
-[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/5f6b3ec9-8dfe-42d9-b57a-eac22cec8e1a.svg)](https://insight.sensiolabs.com/projects/5f6b3ec9-8dfe-42d9-b57a-eac22cec8e1a)
+[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/f31c9db5-f884-4aa0-8161-45cfdd81071a.svg)](https://insight.sensiolabs.com/projects/f31c9db5-f884-4aa0-8161-45cfdd81071a)
 [![Code Climate](https://codeclimate.com/github/markenwerk/php-iso3166-country-information/badges/gpa.svg)](https://codeclimate.com/github/markenwerk/php-iso3166-country-information)
 [![Latest Stable Version](https://poser.pugx.org/markenwerk/iso3166-country-information/v/stable)](https://packagist.org/packages/markenwerk/iso3166-country-information)
 [![Total Downloads](https://poser.pugx.org/markenwerk/iso3166-country-information/downloads)](https://packagist.org/packages/markenwerk/iso3166-country-information)
