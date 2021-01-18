@@ -1,13 +1,15 @@
 <?php
 
-namespace Markenwerk\Iso3166Country\Exception;
+namespace ChromaX\Iso3166Country\Exception;
+
+use Exception;
 
 /**
  * Class Iso3166CountryException
  *
- * @package Markenwerk\Iso3166Country\Exception
+ * @package ChromaX\Iso3166Country\Exception
  */
-class Iso3166CountryException extends \Exception
+class Iso3166CountryException extends Exception
 {
 
 }

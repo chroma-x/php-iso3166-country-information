@@ -1,13 +1,13 @@
 <?php
 
-namespace Markenwerk\Iso3166Country;
+namespace ChromaX\Iso3166Country;
 
-use Markenwerk\Iso3166Country\Exception\Iso3166CountryException;
+use ChromaX\Iso3166Country\Exception\Iso3166CountryException;
 
 /**
  * Class Iso3166Country
  *
- * @package Markenwerk\Iso3166Country
+ * @package ChromaX\Iso3166Country
  */
 class Iso3166Country
 {
@@ -170,7 +170,7 @@ class Iso3166Country
 	{
 		if (
 			!isset($iso3166CountryInfo[Iso3166CountryInformation::ISO3166_ALPHA2])
-			|| mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::ISO3166_ALPHA2]) != 2
+			|| mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::ISO3166_ALPHA2]) !== 2
 		) {
 			return false;
 		}
@@ -185,7 +185,7 @@ class Iso3166Country
 	{
 		if (
 			!isset($iso3166CountryInfo[Iso3166CountryInformation::ISO3166_ALPHA3])
-			|| mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::ISO3166_ALPHA3]) != 3
+			|| mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::ISO3166_ALPHA3]) !== 3
 		) {
 			return false;
 		}
@@ -215,7 +215,7 @@ class Iso3166Country
 	{
 		if (
 			!isset($iso3166CountryInfo[Iso3166CountryInformation::ISO3166_2])
-			|| mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::ISO3166_2]) != 2
+			|| mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::ISO3166_2]) !== 2
 		) {
 			return false;
 		}
@@ -230,7 +230,7 @@ class Iso3166Country
 	{
 		if (
 			!isset($iso3166CountryInfo[Iso3166CountryInformation::UNITED_NATIONS_ID])
-			|| mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::UNITED_NATIONS_ID]) == 0
+			|| $iso3166CountryInfo[Iso3166CountryInformation::UNITED_NATIONS_ID] === ''
 		) {
 			return false;
 		}
@@ -243,10 +243,11 @@ class Iso3166Country
 	 */
 	private function validateInfoByToplevelDomain(array $iso3166CountryInfo)
 	{
+		$tldLength = mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::TOP_LEVEL_DOMAIN]);
 		if (
 			!isset($iso3166CountryInfo[Iso3166CountryInformation::TOP_LEVEL_DOMAIN])
-			|| mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::TOP_LEVEL_DOMAIN]) < 2
-			|| mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::TOP_LEVEL_DOMAIN]) > 4
+			|| $tldLength < 2
+			|| $tldLength > 4
 		) {
 			return false;
 		}
@@ -261,7 +262,7 @@ class Iso3166Country
 	{
 		if (
 			!isset($iso3166CountryInfo[Iso3166CountryInformation::NAME])
-			|| mb_strlen($iso3166CountryInfo[Iso3166CountryInformation::NAME]) == 0
+			|| $iso3166CountryInfo[Iso3166CountryInformation::NAME] === ''
 		) {
 			return false;
 		}

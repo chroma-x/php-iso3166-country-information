@@ -1,23 +1,23 @@
 {
-  "name": "markenwerk/iso3166-country-information",
+  "name": "chroma-x/iso3166-country-information",
   "type": "library",
   "description": "ISO3166 util class for validating and listing country codes and getting detailed information for identified countries.",
   "keywords": [
     "ISO3166",
     "Country code"
   ],
-  "homepage": "http://markenwerk.net/",
+  "homepage": "http://chroma-x.de/",
   "license": "MIT",
   "authors": [
     {
       "name": "Martin Brecht-Precht",
-      "email": "mb@markenwerk.net",
-      "homepage": "http://markenwerk.net"
+      "email": "mb@chroma-x.de",
+      "homepage": "http://chroma-x.de"
     }
   ],
   "autoload": {
     "psr-4": {
-      "Markenwerk\\Iso3166Country\\": "src/"
+      "ChromaX\\Iso3166Country\\": "src/"
     }
   },
   "require": {

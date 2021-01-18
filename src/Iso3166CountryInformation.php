@@ -1,11 +1,14 @@
 <?php
 
-namespace Markenwerk\Iso3166Country;
+namespace ChromaX\Iso3166Country;
+
+use ChromaX\Iso3166Country\Exception\Iso3166CountryException;
+use Exception;
 
 /**
  * Class Iso3166CountryInformation
  *
- * @package Markenwerk\Iso3166Country
+ * @package ChromaX\Iso3166Country
  */
 class Iso3166CountryInformation
 {
@@ -44,7 +47,7 @@ class Iso3166CountryInformation
 				$countryData = $country;
 				$country = new Iso3166Country();
 				$country->loadByIso3166CountryInformation($countryData);
-			} catch (\Exception $exception) {
+			} catch (Exception $exception) {
 				continue;
 			}
 		}
@@ -54,6 +57,7 @@ class Iso3166CountryInformation
 	/**
 	 * @param string $countryCode
 	 * @return Iso3166Country|null
+	 * @throws Iso3166CountryException
 	 */
 	public static function getByIso3166Alpha2($countryCode)
 	{
@@ -69,6 +73,7 @@ class Iso3166CountryInformation
 	/**
 	 * @param string $countryCode
 	 * @return Iso3166Country|null
+	 * @throws Iso3166CountryException
 	 */
 	public static function getByIso3166Alpha3($countryCode)
 	{
@@ -79,16 +84,18 @@ class Iso3166CountryInformation
 	/**
 	 * @param int $countryCode
 	 * @return Iso3166Country|null
+	 * @throws Iso3166CountryException
 	 */
 	public static function getByIso3166Numeric($countryCode)
 	{
-		$countryCode = str_pad((string)$countryCode, 3, '0', STR_PAD_LEFT);
-		return self::getBy(self::ISO3166_NUMERIC, $countryCode);
+		$countryCodePadded = str_pad((string)$countryCode, 3, '0', STR_PAD_LEFT);
+		return self::getBy(self::ISO3166_NUMERIC, $countryCodePadded);
 	}
 
 	/**
 	 * @param string $countryCode
 	 * @return Iso3166Country|null
+	 * @throws Iso3166CountryException
 	 */
 	public static function getByIso3166v2($countryCode)
 	{
@@ -99,6 +106,7 @@ class Iso3166CountryInformation
 	/**
 	 * @param string $unitedNationsId
 	 * @return Iso3166Country|null
+	 * @throws Iso3166CountryException
 	 */
 	public static function getByUnitedNationsId($unitedNationsId)
 	{
@@ -109,10 +117,11 @@ class Iso3166CountryInformation
 	/**
 	 * @param string $toplevelDomain
 	 * @return Iso3166Country|null
+	 * @throws Iso3166CountryException
 	 */
 	public static function getByToplevelDomain($toplevelDomain)
 	{
-		$toplevelDomain = trim(strtolower($toplevelDomain), '.');
+		$toplevelDomain = strtolower(trim($toplevelDomain, '.'));
 		return self::getBy(self::TOP_LEVEL_DOMAIN, $toplevelDomain);
 	}
 
@@ -120,13 +129,13 @@ class Iso3166CountryInformation
 	 * @param string $identifier
 	 * @param string $code
 	 * @return Iso3166Country|null
-	 * @throws Exception\Iso3166CountryException
+	 * @throws Iso3166CountryException
 	 */
 	private static function getBy($identifier, $code)
 	{
 		$countryDataList = self::getCountryData();
 		foreach ($countryDataList as $countryData) {
-			if ($countryData[$identifier] == $code) {
+			if ($countryData[$identifier] === $code) {
 				$iso3166Country = new Iso3166Country();
 				return $iso3166Country->loadByIso3166CountryInformation($countryData);
 			}
@@ -161,8 +170,8 @@ class Iso3166CountryInformation
 	 */
 	public static function validateIso3166Numeric($countryCode)
 	{
-		$countryCode = str_pad((string)$countryCode, 3, '0', STR_PAD_LEFT);
-		return self::validateBy(self::ISO3166_NUMERIC, $countryCode);
+		$countryCodePadded = str_pad((string)$countryCode, 3, '0', STR_PAD_LEFT);
+		return self::validateBy(self::ISO3166_NUMERIC, $countryCodePadded);
 	}
 
 	/**
@@ -191,7 +200,7 @@ class Iso3166CountryInformation
 	 */
 	public static function validateToplevelDomain($toplevelDomain)
 	{
-		$toplevelDomain = trim(strtolower($toplevelDomain), '.');
+		$toplevelDomain = strtolower(trim($toplevelDomain, '.'));
 		return self::validateBy(self::TOP_LEVEL_DOMAIN, $toplevelDomain);
 	}
 
@@ -204,7 +213,7 @@ class Iso3166CountryInformation
 	{
 		$countryDataList = self::getCountryData();
 		foreach ($countryDataList as $countryData) {
-			if ($countryData[$identifier] == $code) {
+			if ($countryData[$identifier] === $code) {
 				return true;
 			}
 		}
@@ -226,10 +235,10 @@ class Iso3166CountryInformation
 		$countryDataList = self::getCountryData();
 		$options = array();
 		foreach ($countryDataList as $countryData) {
-			$selected = ($countryData[$valueKey] == $selectedValue) ? ' selected="selected"' : '';
+			$selected = ($countryData[$valueKey] === $selectedValue) ? 'selected="selected"' : '';
 			$value = $countryData[$valueKey];
 			$name = $countryData[$nameKey];
-			$options[] = '<option value="' . $value . '"' . $selected . '>' . $name . '</option>';
+			$options[] = '<option value="' . $value . '" ' . $selected . '>' . $name . '</option>';
 		}
 		return implode(PHP_EOL, $options);
 	}

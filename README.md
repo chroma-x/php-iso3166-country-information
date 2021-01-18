@@ -1,12 +1,12 @@
 # PHP ISO3166 Country Information
 
-[![Build Status](https://travis-ci.org/markenwerk/php-iso3166-country-information.svg?branch=master)](https://travis-ci.org/markenwerk/php-iso3166-country-information)
-[![Test Coverage](https://codeclimate.com/github/markenwerk/php-iso3166-country-information/badges/coverage.svg)](https://codeclimate.com/github/markenwerk/php-iso3166-country-information/coverage)
+[![Build Status](https://travis-ci.org/chroma-x/php-iso3166-country-information.svg?branch=master)](https://travis-ci.org/chroma-x/php-iso3166-country-information)
+[![Test Coverage](https://codeclimate.com/github/chroma-x/php-iso3166-country-information/badges/coverage.svg)](https://codeclimate.com/github/chroma-x/php-iso3166-country-information/coverage)
 [![SensioLabs Insight](https://img.shields.io/sensiolabs/i/f31c9db5-f884-4aa0-8161-45cfdd81071a.svg)](https://insight.sensiolabs.com/projects/f31c9db5-f884-4aa0-8161-45cfdd81071a)
-[![Code Climate](https://codeclimate.com/github/markenwerk/php-iso3166-country-information/badges/gpa.svg)](https://codeclimate.com/github/markenwerk/php-iso3166-country-information)
-[![Latest Stable Version](https://poser.pugx.org/markenwerk/iso3166-country-information/v/stable)](https://packagist.org/packages/markenwerk/iso3166-country-information)
-[![Total Downloads](https://poser.pugx.org/markenwerk/iso3166-country-information/downloads)](https://packagist.org/packages/markenwerk/iso3166-country-information)
-[![License](https://poser.pugx.org/markenwerk/iso3166-country-information/license)](https://packagist.org/packages/markenwerk/iso3166-country-information)
+[![Code Climate](https://codeclimate.com/github/chroma-x/php-iso3166-country-information/badges/gpa.svg)](https://codeclimate.com/github/chroma-x/php-iso3166-country-information)
+[![Latest Stable Version](https://poser.pugx.org/chroma-x/iso3166-country-information/v/stable)](https://packagist.org/packages/chroma-x/iso3166-country-information)
+[![Total Downloads](https://poser.pugx.org/chroma-x/iso3166-country-information/downloads)](https://packagist.org/packages/chroma-x/iso3166-country-information)
+[![License](https://poser.pugx.org/chroma-x/iso3166-country-information/license)](https://packagist.org/packages/chroma-x/iso3166-country-information)
 
 ISO3166 util class for validating and listing country codes and getting detailed information for identified countries. 
 
@@ -15,7 +15,7 @@ ISO3166 util class for validating and listing country codes and getting detailed
 ````{json}
 {
    	"require": {
-        "markenwerk/iso3166-country-information": "~3.0"
+        "chroma-x/iso3166-country-information": "~3.0"
     }
 }
 ````
@@ -27,8 +27,8 @@ ISO3166 util class for validating and listing country codes and getting detailed
 ````{php}  
 require_once('path/to/vendor/autoload.php');
 
-use Markenwerk\Iso3166Country\Iso3166CountryInformation;
-use Markenwerk\Iso3166Country\Iso3166Country;
+use ChromaX\Iso3166Country\Iso3166CountryInformation;
+use ChromaX\Iso3166Country\Iso3166Country;
 ````
 
 ---
@@ -238,8 +238,8 @@ $countryExists = Iso3166CountryInformation::validateUnitedNationsId('de');
 #### Creation of an object by country code
 
 ````{php}
-use Markenwerk\Iso3166Country\Iso3166CountryInformation;
-use Markenwerk\Iso3166Country\Iso3166Country;
+use ChromaX\Iso3166Country\Iso3166CountryInformation;
+use ChromaX\Iso3166Country\Iso3166Country;
 
 $country = new Iso3166Country();
 $country->loadByIso3166Alpha2CountryCode('DE');
@@ -279,7 +279,7 @@ $name = $country->getName();
 ## Contribution
 
 Contributing to our projects is always very appreciated.  
-**But: please follow the contribution guidelines written down in the [CONTRIBUTING.md](https://github.com/markenwerk/php-iso3166-country-information/blob/master/CONTRIBUTING.md) document.**
+**But: please follow the contribution guidelines written down in the [CONTRIBUTING.md](https://github.com/chroma-x/php-iso3166-country-information/blob/master/CONTRIBUTING.md) document.**
 
 ## License
 
